@@ -13,5 +13,7 @@ Gender Distribution: The dataset includes both male and female patients.
 Health Parameters:
 
 Blood Pressure: Recorded blood pressure readings are provided in the systolic/diastolic format.
+
 Height and Weight: Patient heights range from approximately 152 cm to 181 cm, with weights varying from around 60 kg to 80 kg.
+
 BMI (Body Mass Index): BMI values range from approximately 22.86 to 25.95, with a mean BMI of approximately 24.75. This suggests that, on average, patients fall within the normal weight range.
