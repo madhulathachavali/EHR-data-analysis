@@ -1,7 +1,4 @@
-# EHR Data Analysis
-
-
-## Analysis Summary: Electronic Health Record (EHR) Data
+#  Electronic Health Record (EHR) Data Analysis
 
 ## Dataset Overview:
 
