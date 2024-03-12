@@ -48,3 +48,18 @@ proc sgplot data=EHR;
 vbox BMI / category=Gender;
 run;
 
+/* Correlation Analysis */
+proc corr data=EHR;
+var Age Height Weight BMI;
+run;
+
+/* Gender-based Comparisons */
+proc ttest data=EHR;
+class Gender;
+var Age Height Weight BMI;
+run;
+
+/* Predictive Modeling */
+proc reg data=EHR;
+model BMI = Age Height Weight / selection=stepwise;
+run;
