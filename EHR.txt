@@ -1,0 +1,50 @@
+/* Create sample EHR dataset */
+data EHR;
+input Patient_ID Age Gender $ Diagnosis_Code $ Procedure_Code $ Blood_Pressure $ Height Weight BMI;
+datalines;
+1 35 M 12345 ABC 120/80 175 70 22.86
+2 45 F 23456 DEF 130/85 160 65 25.39
+3 55 M 34567 GHI 140/90 180 80 24.69
+4 65 F 45671 JKL 120/75 155 60 25.03
+5 35 M 56784 MNO 125/82 178 75 25.95
+6 38 M 12342 ABC 124/80 171 70 22.86
+7 42 F 23459 DEF 134/85 168 65 25.39
+8 53 M 34523 GHI 136/90 181 80 24.69
+9 69 F 45633 JKL 123/75 152 60 25.03
+10 38 M 56778 MNO 122/82 179 75 25.95
+;
+run;
+
+/* Summary statistics */
+proc means data=EHR mean min max;
+var Age Height Weight BMI;
+run;
+
+/* Frequency distribution of diagnosis codes */
+proc freq data=EHR;
+tables Diagnosis_Code / nocum;
+run;
+
+/* Frequency distribution of procedure codes */
+proc freq data=EHR;
+tables Procedure_Code / nocum;
+run;
+
+/* Summary statistics by gender */
+proc means data=EHR mean min max;
+class Gender;
+var Age Height Weight BMI;
+run;
+
+/* Graphs */
+/* Histogram of Age */
+proc univariate data=EHR;
+var Age;
+histogram / normal;
+run;
+
+/* Box plot of BMI by Gender */
+proc sgplot data=EHR;
+vbox BMI / category=Gender;
+run;
+
